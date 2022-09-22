@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Courier New", Courier, monospace;
+}
+* body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+* body .box {
+  width: 100px;
+  height: 100px;
+  background-color: #dedede;
+}
+* body .box2 {
+  width: 100px;
+  height: 100px;
+  background-color: #dedede;
+}
+* body .border {
+  border: 3px dashed #666;
+}
+* body .red {
+  background-color: red;
+}
+* body .green {
+  background-color: green;
+}
+* body .blue {
+  background-color: blue;
+}/*# sourceMappingURL=style.css.map */

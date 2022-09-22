@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>examp-2</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color:crimson ;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>{{title}}</h1>
+        <a :href="link.href" :target="link.target" :alt="link.alt">{{link.content}}</a>
+       <button @click="change('buton 1 ile degisti')">buton 1</button>
+       <button @click="change('buton 2 ile degisti')">buton 2</button>
+       <button @click="eventF($event)">event butonu</button>
+       <h2>Box üzerinde gez</h2>
+   
+    
+      <div @mousemove="coord($event)" class="box">
+
+      </div>
+      <h2>KOORDİNATLAR(X,Y) : {{title2}}</h2>
+       
+    </div>
+
+
+
+    
+
+    <script src="app.js"></script>
+</body>
+</html>

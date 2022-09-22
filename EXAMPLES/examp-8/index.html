@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>examp-8(todo-list)</title>
+    <script src="https://unpkg.com/vue@3"></script>
+  
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <style>
+        .copletedItem {
+          background-color: rgb(171, 238, 193);
+        }
+        .uncompletedItem {
+          background-color: rgb(241, 175, 175);
+        }
+      </style>
+</head>
+<body>
+    <div class="container" id="app">
+        <div class="row">
+            <div class="col-6 offset-1">
+                <h3 class="text-center">TODO LİST</h3>
+                <div class="d-flex justify-content-start align-item-center mb-2">
+                    <input type="text" class="form-control" @keydown.enter="addTodo">
+                </div>
+                <div v-if="todoList.length > 0">
+                    <ul  class="list-group">
+                        <!-- classları :class ile todo.completed durumuna göre ekleriz -->
+                        <li  v-for="todo in todoList" :key="todo.id" :class="{'copletedItem':todo.completed,'uncompletedItem':!todo.completed }" class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <!-- inputun checkini v-model ile kontrol et. id ve for u dinamik olarak obje üzerinden çek -->
+                                <input class="form-check-input me-2" type="checkbox" v-model="todo.completed" :id="`checkbox_completed_${todo.id}`">
+                                <label class="form-check-label" :for="`checkbox_completed_${todo.id}`">
+                                 {{todo.text}}
+                            </div>
+                            <!-- hala for içindeyiz ve todo yu remmoveItem a gönderdik -->
+                            <button class="btn btn-danger btn-sm" @click="removeItem(todo)">Sil</button>
+                          
+                            </label>
+                        </li>
+                       
+                    </ul>
+                    <small class="text-success">Tamamlanmış item sayısı :{{completedItemCount}}</small><br>
+                    <small class="text-danger">Tamamlanmamış item sayısı :{{unCompletedItemCount}}</small>
+                </div>
+           
+                
+              
+                <div v-else class="alert alert-warning">Henüz bir görev eklemediniz..</div>
+            </div>
+            <div class="col-4">
+                <pre>
+                    {{todoList}}
+                </pre>
+            </div>
+        </div>
+
+
+    </div>
+    
+
+    <script src="app.js"></script>
+</body>
+</html>

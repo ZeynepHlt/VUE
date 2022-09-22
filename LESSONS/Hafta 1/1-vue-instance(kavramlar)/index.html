@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+    <!-- html template -->
+    <div id="app">
+        <h1>{{title}}</h1>
+        <p>{{content}}</p>
+        <a :target="link.target" :href="link.url" :alt="link.alt">{{link.title}}</a>
+        <br><br>
+
+        <button v-on:click="changeTitle('buton 1 ile parametreli değişti ')">Title bilgisini değiştir(1. buton)</button>
+        <button @click="changeTitle('buton 2 ile parametreli değişti')">Title bilgisini değiştir(2. buton)</button>
+
+        <div class="box" @mousemove="updateCoords('koordinatlar :',$event)" @click="changeTitle('box üzerinden gelen')">
+          
+        </div>
+        <span>{{coords.x}},{{coords.y}}</span>
+    </div>
+
+
+
+    <script src="app.js"></script>
+</body>
+
+</html>

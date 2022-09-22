@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>examp-6</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+        <h2>KUTU ÖZELLİKLERİNİ DEĞİŞTİR</h2>
+        <button @click="borderState=!borderState">Border Ekle/Çıkar</button><br>
+        <button @click="bgState=!bgState">Arka planı mavi renk yap/yapma</button><br>
+        <button @click="sizeState=!sizeState" >Kutuyu büyüt/küçült</button><br>
+        <div class="box" :class="boxClass">
+
+        </div>
+
+        <h2>İNPUTA GİRİLEN DEĞERLE KUTUNUN RENGİNİ BELİRLE</h2>
+        <input type="text" v-model="box2Color">
+        <div class="box2" :style="{backgroundColor:box2Color}"></div>
+    </div>
+
+    
+
+
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class style binding</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <h4>Butonlarla kutunun renk ve borderını değiştirin(class ekleme)</h4>
+      <!-- showBorder,redBG true ise false ,false ise true yap -->
+      <button @click="showBorder=!showBorder">Border Ekle/Ekleme</button><br />
+      <button @click="redBG=!redBG">Kırmızı bg Ekle/Ekleme</button>
+      <!-- border ve red(class bunlar) değeri true olursa ekle -->
+      <div class="box" :class="boxClasess"></div>
+      <br />
+      <h4>inputa renk adı veya kodu girin (style ekleme)</h4>
+      <input type="text" v-model="bgColor" />
+
+      <div class="box2" :style="{backgroundColor:bgColor}"></div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
