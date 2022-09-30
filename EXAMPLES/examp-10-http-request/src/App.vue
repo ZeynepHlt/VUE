@@ -48,7 +48,7 @@ export default {
         created_at: new Date(), //oluşturulma tarihi
         completed: false, //tamamlanma durumu
       };
-      //axios ile json adresine bu objeyi gönderdik (POST). Gönderdikten sonra js te promise den yararlandık başarılı şekilde gönderme tamamlandığında then callback fonksiyonu ile o değeri console da yazdırdık
+
       axios
         .post(" http://localhost:3000/items", saveObject)
         .then((giden_obje) => {
