@@ -1,18 +1,48 @@
 <template>
   <p>
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut, architecto
-    eaque non quas consequatur voluptates! Quod officia voluptatum, similique
-    tempore eveniet recusandae dolores eos mollitia eaque praesentium id dolorum
-    fugit?
+    <!-- !store içindeki state içindeki person objesini yazdır -->
+    {{ $store.state.user }}
+    <!-- !store içindeki state içindeki permission dizisini yazdır -->
+    {{ $store.state.permission }}
+      <!-- !iterate ederkende $ ile ulaşabiliriz -->
+  <ul>
+    <li v-for="p in $store.state.permission" :key="p">
+      {{ p }}
+    </li>
+  </ul>
+  <ul>
+    <li v-for="u in $store.state.userList" :key="u">
+      {{ u }}
+    </li>
+  </ul>
+  <!-- !state in içindeki bilgiyi güncelleme -->
+
+  {{$store.state.fullName}}
+  <button @click="updateName">İsim değiştir</button>
   </p>
+
 </template>
 
 <script>
 export default {
   name: "App",
   created() {
-    console.log(this.$store);
+    
+    console.log(this.$store.state.person);
+    console.log(this.$store.state.theme);
+    //normal erişim-filtreleyerek
+    console.log(this.$store.state.itemList.filter((i)=>i.type==="mobilya"));
+    //getters ile filtreledikten sonra erişim
+    console.log(this.$store.getters.woodItems)
+    // getters ile password bilgisini silerek erişim
+    console.log(this.$store.getters.activeUser)
   },
+  methods:{
+    //state içindeki bilgiyi güncellemek için fonksiyon
+    updateName(){
+      this.$store.state.fullName="Arif Daban";
+    }
+  }
 };
 </script>
 
