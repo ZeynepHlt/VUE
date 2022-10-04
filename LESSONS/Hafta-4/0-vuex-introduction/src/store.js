@@ -24,6 +24,22 @@ const store = createStore({
       { id: 5, title: "bardak", type: "plastik" },
     ],
   },
+  //!set etme
+  mutations: {
+    //newItem adında bir method oluştur bu state i günceller. gelen item ı ekler
+    newItem(state, item) {
+      state.itemList.push(item);
+    },
+  },
+  actions: {
+    //!asenkron işlem yapmak için contex içinden commit i kullanıp mutations u çalıştır
+    newItem({ commit }, item) {
+      setTimeout(() => {
+        commit("newItem", item);
+      }, 2000);
+    },
+  },
+  //!get etme
   getters: {
     //* ahşap olan öğeleri state içindeki itemList te filtrele ve app.vue içinde woodItems adında kullan
     woodItems: (state) => state.itemList.filter((i) => i.type === "mobilya"),
@@ -32,7 +48,8 @@ const store = createStore({
       const user = {
         ...state.user,
       };
-      delete user.password;
+      delete user.password; //user içindeki password ve tc bilgilerini sil
+      delete user.tc;
       return user;
     },
   },

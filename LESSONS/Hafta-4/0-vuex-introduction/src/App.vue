@@ -1,58 +1,40 @@
 <template>
   <p>
+    <NewUser></NewUser>
+    <UserList></UserList>
     <!-- !store içindeki state içindeki person objesini yazdır -->
-    {{ $store.state.user }}
+    <!-- {{ $store.state.user }} -->
     <!-- !store içindeki state içindeki permission dizisini yazdır -->
-    {{ $store.state.permission }}
-      <!-- !iterate ederkende $ ile ulaşabiliriz -->
-  <ul>
-    <li v-for="p in $store.state.permission" :key="p">
-      {{ p }}
+    <!-- {{ $store.state.permission }} -->
+    <!-- !iterate ederkende $ ile ulaşabiliriz -->
+    <!-- <ul>
+    <li v-for="(p,index) in $store.state.permission" :key="index">
+      {{ index}},{{p}}
     </li>
-  </ul>
-  <ul>
+  </ul> -->
+    <!-- <ul>
     <li v-for="u in $store.state.userList" :key="u">
       {{ u }}
     </li>
-  </ul>
-  <!-- !state in içindeki bilgiyi güncelleme -->
+  </ul>-->
+    <!-- !woodItems içinde olan mobilya type ına sahip objeleri yazdır -->
+    <!-- <ul> 
+    <li v-for="item in woodItems" :key="item">
+      {{ item.title }}
+    </li>
+  </ul> -->
+    <!-- !state in içindeki bilgiyi güncelleme -->
 
-  {{$store.state.fullName}}
-  <button @click="updateName">İsim değiştir</button>
+    <!-- {{$store.state.fullName}} -->
+    <!-- <button @click="updateName">İsim değiştir</button> -->
   </p>
-
 </template>
 
 <script>
+import NewUser from "@/components/NewUser.vue";
+import UserList from "@/components/UserList.vue";
+// import { mapGetters } from "vuex"; //mapGetters gettters içindekilere computed olarak erişimimizi sağlar
 export default {
-  name: "App",
-  created() {
-    
-    console.log(this.$store.state.person);
-    console.log(this.$store.state.theme);
-    //normal erişim-filtreleyerek
-    console.log(this.$store.state.itemList.filter((i)=>i.type==="mobilya"));
-    //getters ile filtreledikten sonra erişim
-    console.log(this.$store.getters.woodItems)
-    // getters ile password bilgisini silerek erişim
-    console.log(this.$store.getters.activeUser)
-  },
-  methods:{
-    //state içindeki bilgiyi güncellemek için fonksiyon
-    updateName(){
-      this.$store.state.fullName="Arif Daban";
-    }
-  }
+  components: { NewUser, UserList },
 };
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
