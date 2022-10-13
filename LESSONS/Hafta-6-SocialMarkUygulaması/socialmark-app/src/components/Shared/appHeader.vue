@@ -9,7 +9,8 @@
         </svg>
         SocialMark
       </div>
-      <div class="ml-auto flex items-center">
+      <!-- !bu kısım yani yeni ekle kısmı kullanıcı girişi olunca gözükecek -->
+      <div v-if="_isAuthenticated" class="ml-auto flex items-center">
         <router-link :to="{ name: 'newBookmarkPage' }" class="flex bg-gray-700 hover:bg-black text-white px-3 py-1 rounded-sm text-sm items-center mr-2">
           <svg xmlns="http://www.w3.org/2000/svg" class="fill-current" height="16" viewBox="0 0 24 24" width="16">
             <path d="M0 0h24v24H0V0z" fill="none" />
@@ -41,7 +42,7 @@
               </svg>
               Favorites</a
             >
-            <a href="#" class="menu-item">
+            <a @click="onLogout" href="#" class="menu-item">
               <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" class="fill-current mr-1" height="24" viewBox="0 0 24 24" width="24">
                 <g><path d="M0,0h24v24H0V0z" fill="none" /></g>
                 <g>
@@ -57,3 +58,19 @@
   </div>
   <!-- ! HEADER -->
 </template>
+<script>
+import { mapGetters } from "vuex";
+
+export default {
+  computed: {
+    //kimlik doğrulandıysa yeni butonu gözüksün
+    ...mapGetters(["_isAuthenticated"]),
+  },
+  methods: {
+    onLogout() {
+      this.$store.commit("logoutUser");
+      this.$router.push({ name: "loginPage" }); //çıkış yaptıktan sonra tekrar loginPage e git
+    },
+  },
+};
+</script>

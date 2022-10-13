@@ -1,0 +1,54 @@
+{
+  "users": [
+    {
+      "fullname": "zeynep",
+      "username": "zynp7",
+      "password": "12345",
+      "id": 1
+    },
+    {
+      "fullname": "zeynep holat",
+      "username": "zynp",
+      "password": "U2FsdGVkX18k4sQ/cH1/rik+jhL7wALsoZkxWZrVSRU=",
+      "id": 2
+    },
+    {
+      "fullname": "arif daban",
+      "username": "arf7",
+      "password": "U2FsdGVkX1+WWuwqz/WVEIxlol7NEgZsFlY+98YXxSU=",
+      "id": 3
+    },
+    {
+      "fullname": "melike tanas",
+      "username": "mtanas",
+      "password": "b0114afa26376aab6b83b2825e9376d60f5b5d48",
+      "id": 4
+    },
+    {
+      "fullname": "emre holat",
+      "username": "emre7",
+      "password": "4ce3839cdb9fc87bed3d8fd7f99fe6e15f476dcf",
+      "id": 5
+    },
+    {
+      "fullname": "seda daban",
+      "username": "seda7",
+      "password": "a42f2a10eeddbabd62ec5fa7c2441b7d1069f823",
+      "id": 6
+    },
+    {
+      "fullname": "seda daban",
+      "username": "seda7",
+      "password": "a42f2a10eeddbabd62ec5fa7c2441b7d1069f823",
+      "id": 7
+    },
+    {
+      "fullname": "seda daban",
+      "username": "seda7",
+      "password": "a42f2a10eeddbabd62ec5fa7c2441b7d1069f823",
+      "id": 8
+    }
+  ],
+  "bookmarks": [],
+  "categories": []
+}
