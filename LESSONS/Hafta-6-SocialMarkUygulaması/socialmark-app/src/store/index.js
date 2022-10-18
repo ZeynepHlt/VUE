@@ -9,6 +9,7 @@ export default createStore({
     user: null,
     saltKey: "Booklike12345?!", //şifreleme yaparken kullanılacak key
   },
+  //tarayıcıda kullanıcı bilgilerini şifrelemek için secure-ls kullanırız
   plugins: [
     createPersistedState({
       storage: {
@@ -27,6 +28,13 @@ export default createStore({
     logoutUser(state) {
       state.user = null;
     },
+    //gelen bookmark ı likes listesine ekle
+    setLikes(state, bookmarkIds) {
+      state.user.likes = bookmarkIds;
+    },
+    setBookmarks(state, bookmarkIds) {
+      state.user.bookmarks = bookmarkIds;
+    },
   },
   getters: {
     //user null den farklı ise kimliğin doğrulanmış olduğunu söyler. doğrulanmadıysa false döndürür(false/true)
@@ -38,6 +46,13 @@ export default createStore({
       delete user?.password;
       return user;
     },
+    //kullanıcının id sini gönderen getters
+    _currentUserId: (state) => state.user.id,
+    //kullanıcıların beğenilerini al(beğeni butonu için)
+    _userLikes: (state) => state.user.likes || [],
+    //kullanıcının bookmarkslarını al(bookmarks butonu için)
+    _userBookmarks: (state) => state.user.bookmarks || [],
+    //password şifreleme için kullanılan key
     _saltKey: (state) => state.saltKey,
   },
 });

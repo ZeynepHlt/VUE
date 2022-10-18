@@ -1,6 +1,7 @@
 import { createWebHashHistory } from "vue-router";
 import { createRouter } from "vue-router";
 import store from "@/store/index"; //kullanıcının kimliğinin doğrulanmış olup olmadığına burada ihtiyacımız olduğu için import ederriz
+//sayfa yönlendirmeleri için tanımlamalar
 const routes = [
   {
     name: "homePage",
@@ -25,9 +26,9 @@ const routes = [
 ];
 const router = createRouter({
   routes,
-  history: createWebHashHistory(),
+  history: createWebHashHistory(), //kullanmamızın nedeni sayfanın yenilenmeden tekrar yüklenmesini sağlamak
 });
-//dışarıdan içeriye (homePage e ) giriş olmamalı aynı zamanda içeriden dışarıya(loginPage ve registerPage) çıkış olmamalıdır. (tarayıcıda /login vs. yazdığımızda gitmemeli)
+//dışarıdan içeriye (homePage e ) giriş olmamalı aynı zamanda içeriden dışarıya(loginPage ve registerPage) çıkış olmamalıdır.(logOut yapılmadan)(tarayıcıda /login vs. yazdığımızda gitmemeli)
 //Kullanıcı giriş yapmadığı sürece homaPage e ulaşamasın ve onu tekrar login sayfasına atsın
 router.beforeEach((to, _, next) => {
   const _isAuthenticated = store.getters._isAuthenticated; //store daki authenticated durumunu alıyoruz

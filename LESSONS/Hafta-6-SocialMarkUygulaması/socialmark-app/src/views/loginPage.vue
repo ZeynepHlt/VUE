@@ -25,7 +25,7 @@ export default {
     onSubmit() {
       //password ü şifrelediğimiz için burada da şifreleyip kontrol ediyoruz.
       const passwordC = CryptoJS.HmacSHA1(this.userData.password, this.$store.getters._saltKey).toString();
-      // GET /posts?title=json-server&author=typicode --- kullanıcıyı sorgulamak için kullanılan yapı--axiod işlemleri
+      // GET /posts?title=json-server&author=typicode --- kullanıcıyı sorgulamak için kullanılan yapı--axios işlemleri
       this.axios
         .get(`http://localhost:3000/users?username=${this.userData.username}&password=${passwordC}`)
         .then((login_response) => {
